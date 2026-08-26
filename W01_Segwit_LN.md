@@ -41,3 +41,22 @@ Lightning relies on the fact that at any point from the channel opening confirma
 Now, if someone just malleates the funding transaction, this transaction might get confirmed, and the LN nodes lose track of the channel and both peers can't recover the funds. To do so, they have to the manage to collaborate to manually re-craft a closing transaction.
 
 ## How SegWit fixes this
+We saw that the malleability issue comme from the dissimetry or serialized data used for the signature, and for the transaction ID. 
+- The signature cannot by definition depend on the value of the signature (itself), but the txid does, since it includes all transaction data. - We can easily find another signature for an aleadt signed tranction
+-> transaction can be malleated.
+
+Here comes segwit (Segregated Witness)
+
+One of the points of SegWit is that signatures are needed to validate transactions, but do not really need to be in the UTXO set for later operations.
+Before segwit, about 60% of the blockchain data consisted of signatures!
+With SegWit, signature stuff is now moved into a new block of data called **witness data**.
+Different tipes of nodes (full, pruned, spv) will now be able to care, or not care about witness data if they don't need it : they can download and validate it but not store it, or even not download it at all!
+
+Because SegWit was a soft fork, this new data area is after the legacy transaction data, and will only be transmitted to nodes with SegWit enabled.
+
+And because Segwit is a soft fork, the transaction id still depends on exactly the same areas as before, not the witness data.
+
+So now the transaction id does not depend anymore on the transaction's signatures, and this kind of transaction malleability attack can't work anymore!
+
+I say **this kind** of transactin malleability, because there are other ways transaction malleability can be altered, in multisig transactions for example. But that's a story for another time...
+
