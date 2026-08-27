@@ -1,7 +1,7 @@
 # How Segwit was the last building block to enable the Lightning Network
 In January of 2016, the [Lightning Network Paper](https://lightning.network/lightning-network-paper.pdf) was published by Joseph Poon and Thaddeus Dryja.
 
-Later in 2016, Bitcoin core activated BIP112 and BIP68 (OP_CHECKSEQUENCEVERIFY, and the ability to have relative lock times in utxo spending conditions). This made the implementation. This allowed Lightning to have a more precise system for timelocks on revocation transactions, allowing them to have a delay relative to the moment the transaction was published onchain, to better control the time t push penalty transactions).
+Later in 2016, Bitcoin core activated BIP112 and BIP68 (OP_CHECKSEQUENCEVERIFY, and the ability to have relative lock times in utxo spending conditions). This allowed Lightning to have a more precise system for timelocks on revocation transactions, allowing them to have a delay relative to the moment the transaction was published onchain, to better control the time t push penalty transactions).
 
 Every light seemed to be green for the actual implementation of lightning Network.<br>
 Everything except the transaction malleability issue.
