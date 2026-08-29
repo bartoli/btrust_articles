@@ -59,7 +59,7 @@ Now, if someone just malleates the funding transaction, this transaction might g
 To do so, they have to the manage to collaborate to manually re-craft a closing transaction with their two signatures, in a way noone can cheat in the exchange process. And, the whole point of Lightning's trustless construction is that either party should be able to enforce the latest state unilaterally.
 
 ## How SegWit fixes this
-We saw that the malleability issue comme from the dissimetry or serialized data used for the signature, and for the transaction ID. 
+We saw that the malleability issue comes from the dissimetry of serialized data used for the signature, and for the transaction ID. 
 - The signature cannot by definition depend on the value of the signature (itself). But the txid does, since it includes all transaction data. - We can easily find another signature for an already signed transaction
 -> transaction can be malleated.
 
@@ -71,7 +71,7 @@ With SegWit, signature stuff is now moved into a new block of data called **witn
 
 Because SegWit was a soft fork, this new data area is after the legacy transaction data, and will only be transmitted to nodes with SegWit enabled.
 
-Segwit also defines a new consensus on serialization of segwit transaction to define the txid : it takes all previous data areas, and NOT the new withess area.
+Segwit also defines a new consensus on serialization of segwit transaction to define the txid : it takes all previous data areas, and NOT the new withess area, for txid calculation.
 
 So now the transaction id does not depend anymore on the transaction's signatures, and this kind of transaction malleability attack can't work anymore (as long as the output being spent is a Segwit one and not a legacy one)!
 
