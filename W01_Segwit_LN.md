@@ -21,6 +21,17 @@ Using ECDSA, a signature of a message basically consists in 2 integers r and s, 
 
 For ECDSA (on secp256k1), it can be proven that, if (r,s) is a valid signature, then (r, -s mod n) is also a valid signature (n is the scep256k1 curve order value).
 
+Details, if you feel mathsy:
+- For and ECDSA signature, a random number *k* is selected
+- *R* is a point on the Elliptic curve, calculated as *R = k * G*
+- *r* is derived from the X coordinate value of the point *R* on the curve
+- *s* is calculated from a formula that depends on *k*, *r*, *z* (hash of the transaction data), and *d* (the signer's private key)
+- Knowing *r* from the transaction's signature value, we can determine the possible *R* points (at most 2 points on the elliptic curve with that X).
+- We can then name the symetric point of *R* on the curve (same X, but opposite Y value) *-R*
+- *-R* corresponds to using *-k*, not *k*
+- This gives a new valid signature, where the new *s'* value will be *n - $s_0$*
+
+
 ### The problem
 As you probably know, noone can sign a transaction for someone else without knowing their private key. But, as we just saw, they can take any signed transaction in the mempool, and have an easy way to calculate another valid transaction from it:
 - If they take a published transaction, it is easy to extract (r,s) from the signature field of the transaction. 
