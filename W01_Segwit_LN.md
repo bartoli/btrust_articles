@@ -41,7 +41,7 @@ No one can create a valid signature for spending some one else's utxos. But as w
 - they can as easily compute (r, n-s), which will be another valid signature for the same message.
 - Then reconstruct a full transaction from it.
 - As the txid depends on all transaction data (including the new signature value), the txid for this transaction now has a different value
-- They can now publish another transaction, with another id, that spends the same inputs to the same outputs.
+- They can now publish another transaction, with another txid, that spends the same existing utxos to the same destination adresses.
 
 ### Real life consequences
 One could think : what is the problem? Bitcoin solves the double spend problem, so only one of the transactions can end up in the mempool. The the wanted inputs will eventually be spent, to the wanted outputs, regardless of which transaction is confirmed.
