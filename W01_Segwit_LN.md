@@ -21,6 +21,7 @@ I will not fully explain how signing transactions work here, but the properties 
 
 Bitcoin signatures are using secp256k1 Elliptic curve. This curve has the formula:
 $y^2=x^3+ax+b$
+![secop256k1 curve](secp256k1_curve.png "secp256k1 curve")
 
 *G* is a point on the curve such as, when we multiply a secret/private key number by *G*, we obtain a point on the curve that is the associated public key.
 
