@@ -15,7 +15,18 @@ All data in the transaction, meaning even signatures that allow to spend the inp
 We take all fields from the transaction (version, inputs, outputs,...), serialize them as a byte array, and perform a SHA256 hash of the data twice. The result is a 256-bit/32-byte value, which, printed as a hex string of 64 characters, will be used as the txid.
 
 ### How transactions signatures work (before SegWit)
-I will not fully explain how signing transactions work here, but the propertiy that help uderstand the problem.
+I will not fully explain how signing transactions work here, but the properties that help uderstand the problem.
+
+**secp256k1**
+
+Bitcoin signatures are using secp256k1 Elliptic curve. This curve has the formula:
+$y^2=x^3+ax+b$
+
+*G* is a point on the curve such as, when we multiply a secret/private key number by *G*, we obtain a point on the curve that is the associated public key.
+
+We can see that the curve is symetric along Y axis, so any X coordinate that is on the curve has up to 2 possible Y value (no Y value if no point of the curve can have that X, 1 possible Y for the X value of the the point where Y is 0, 2 Y coordinates for all other points).
+
+**ECDSA**
 
 Using ECDSA, a signature of a message basically consists in 2 integers r and s, noted (r,s).
 
@@ -25,7 +36,8 @@ Details, if you feel mathsy:
 - For and ECDSA signature, a random number *k* is selected
 - *R* is a point on the Elliptic curve, calculated as *R = k * G*
 - *r* is derived from the X coordinate value of the point *R* on the curve
-- *s* is calculated from a formula that depends on *k*, *r*, *z* (hash of the transaction data), and *d* (the signer's private key)
+- *s* is calculated from a formula that depends on *k*, *r*, *z* (hash of the transaction data), and *d* (the signer's private key):
+  $s = k^{-1}\cdot(z + r \cdot sk) \mod n$
 - Knowing *r* from the transaction's signature value, we can determine the possible *R* points (at most 2 points on the elliptic curve with that X).
 - We can then name the symetric point of *R* on the curve (same X, but opposite Y value) *-R*
 - *-R* corresponds to using *-k*, not *k*
