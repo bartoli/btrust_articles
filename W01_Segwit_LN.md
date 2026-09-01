@@ -49,8 +49,8 @@ One could think : what is the problem? Bitcoin solves the double spend problem, 
 The simplest example to understand is some retail service that sells something for bitcoin. They will tell the buyer to pay them to some bitcoin address. The buyer will send the seller the transaction id to monitor the success of the payment. They agree that it is considered paid when that transaction has N confirmations.
 
 Imagine the buyer, as soon as he sees that transaction, actually publishes the 'malleated' transaction equivalent, and tries to make it confirmed first (for example by also publishing a transaction that uses the utxo going to them own with a high fee).
-The wrong transaction will get confirmed first. The buyer might only notice that his transaction failed, but not notice that some other transaction still sent his satoshis to the sender address. At that point, they might not even have a possibility to see the original transaction data since it was removed as invalid from mempools. the seller can now say : your payment did not work, send it again. ANd get paid twice!
-Of course, an **honest** service probider would not want to tarnish his reputation..
+The wrong transaction will get confirmed first. The buyer might only notice that his transaction failed, but not notice that some other transaction still sent his satoshis to the sender address. At that point, they might not even have a possibility to see the original transaction data since it was removed as invalid from mempools. the seller can now say : your payment did not work, send it again. And get paid twice!
+Of course, an **honest** service provider would not, in principle, want to tarnish his reputation.
 
 But it can also be done in reverse, if some service offers withdrawals. The recipient gives a destination address. The service sends them the pending txid of the withdrawal transaction. The recipient malleates the transaction and makes it confirmed first. They will receive the funds, but the service will thing the withdrawl fail and issue another transaction. The recipient has now been paid twice!
 That's what happened during the Mt Gox attack.
