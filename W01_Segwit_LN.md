@@ -34,6 +34,9 @@ Details, if you feel mathsy:
 
 ### The problem
 As you probably know, noone can sign a transaction for someone else without knowing their private key. But, as we just saw, they can take any signed transaction in the mempool, and have an easy way to calculate another valid transaction from it:
+
+No one can create a valid signature for spending some one else's utxos. But as we just saw, in ECDSA, there is a way to modify a valid sig of an existing transaction without knowing the private key:
+
 - If they take a published transaction, it is easy to extract (r,s) from the signature field of the transaction. 
 - they can as easily compute (r, n-s), which will be another valid signature for the same message.
 - Then reconstruct a full transaction from it.
