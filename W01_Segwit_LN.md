@@ -15,7 +15,7 @@ All data in the transaction, meaning even signatures that allow to spend the inp
 We take all fields from the transaction (version, inputs, outputs,...), serialize them as a byte array, and perform a SHA256 hash of the data twice. The result is a 256-bit/32-byte value, which, printed as a hex string of 64 characters, will be used as the txid.
 
 ### How transactions signatures work (before SegWit)
-I will not fully explain how signing tranctions work here, but the propertiy that help uderstand the problem.
+I will not fully explain how signing transactions work here, but the propertiy that help uderstand the problem.
 
 Using ECDSA, a signature of a message basically consists in 2 integers r and s, noted (r,s).
 
@@ -43,7 +43,7 @@ As you probably know, noone can sign a transaction for someone else without know
 ### Real life consequences
 One could think : what is the problem? Bitcoin solves the double spend problem, so only one of the transactions can end up in the mempool. The the wanted inputs will eventually be spent, to the wanted outputs, regardless of which transaction is confirmed.
 
-The simplest example to understand is some retail service that sells something for bitcoin. They will tell the buyer to pay them to some bitcoin address. The buyer will send the seller the trénsaction id to monitor the success of the payment. They agree that it is considered paid when that transaction has N confirmations.
+The simplest example to understand is some retail service that sells something for bitcoin. They will tell the buyer to pay them to some bitcoin address. The buyer will send the seller the transaction id to monitor the success of the payment. They agree that it is considered paid when that transaction has N confirmations.
 
 Imagine the buyer, as soon as he sees that transaction, actually publishes the 'malleated' transaction equivalent, and tries to make it confirmed first (for example by also publishing a transaction that uses the utxo going to them own with a high fee).
 The wrong transaction will get confirmed first. The buyer might only notice that his transaction failed, but not notice that some other transaction still sent his satoshis to the sender address. At that point, they might not even have a possibility to see the original transaction data since it was removed as invalid from mempools. the seller can now say : your payment did not work, send it again. ANd get paid twice!
