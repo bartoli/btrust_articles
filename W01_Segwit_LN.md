@@ -66,7 +66,7 @@ The wrong transaction will get confirmed first. The buyer might only notice that
 Of course, an **honest** service provider would not, in principle, want to tarnish his reputation.
 
 But it can also be done in reverse, if some service offers withdrawals. The recipient gives a destination address. The service sends them the pending txid of the withdrawal transaction. The recipient malleates the transaction and makes it confirmed first. They will receive the funds, but the service will thing the withdrawl fail and issue another transaction. The recipient has now been paid twice!
-That's what happened during the Mt Gox attack.
+That's part of what happened during the Mt Gox attack.
 
 ### For the Lightning Network
 For the Lightning Network, this becomes a big problem : channels rely on a funding transaction id : the multisig transaction between the 2 peers that cooperate to create that channel.
