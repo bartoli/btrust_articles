@@ -1,4 +1,4 @@
-# How Segwit was the last building block to enable the Lightning Network
+# Why SegWit Was Critical to Making the Lightning Network Practical
 In January of 2016, the [Lightning Network Paper](https://lightning.network/lightning-network-paper.pdf) was published by Joseph Poon and Thaddeus Dryja.
 
 Later in 2016, Bitcoin core activated BIP112 and BIP68 (OP_CHECKSEQUENCEVERIFY, and the ability to have relative lock times in utxo spending conditions). This allowed Lightning to have a more precise system for timelocks on revocation transactions, allowing them to have a delay relative to the moment the transaction was published onchain, to better control the time to push penalty transactions).
@@ -57,11 +57,11 @@ No one can create a valid signature for spending some one else's utxos. But as w
 - They can now publish another transaction, with another txid, that spends the same existing utxos to the same destination adresses.
 
 ### Real life consequences
-One could think : what is the problem? Bitcoin solves the double spend problem, so only one of the transactions can end up in the mempool. The the wanted inputs will eventually be spent, to the wanted outputs, regardless of which transaction is confirmed.
+One could think : what is the problem? Bitcoin solves the double spend problem, so only one of the transactions can end up in the blockchain. The the wanted inputs will eventually be spent, to the wanted outputs, regardless of which transaction is confirmed.
 
 The simplest example to understand is some retail service that sells something for bitcoin. They will tell the buyer to pay them to some bitcoin address. The buyer will send the seller the transaction id to monitor the success of the payment. They agree that it is considered paid when that transaction has N confirmations.
 
-Imagine the buyer, as soon as he sees that transaction, actually publishes the 'malleated' transaction equivalent, and tries to make it confirmed first (for example by also publishing a transaction that uses the utxo going to them own with a high fee).
+Imagine the seller, as soon as he sees that transaction, actually publishes the 'malleated' transaction equivalent, and tries to make it confirmed first (for example by also publishing a transaction that uses the utxo going to them own with a high fee).
 The wrong transaction will get confirmed first. The buyer might only notice that his transaction failed, but not notice that some other transaction still sent his satoshis to the sender address. At that point, they might not even have a possibility to see the original transaction data since it was removed as invalid from mempools. the seller can now say : your payment did not work, send it again. And get paid twice!
 Of course, an **honest** service provider would not, in principle, want to tarnish his reputation.
 
