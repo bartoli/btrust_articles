@@ -55,6 +55,10 @@ Here is my answer:
 - I mostly connect to other middle size routing nodes. So i am never the start nor the end of a route, always just some middle hop
 - Finally, channels policy can't be updated that often, or your node would be banned for spamming the network. I update, at most, the policy of a given channel twice per day. While on most days, i route 100+ payments. So i'm far from divulging enough information to be able to differentiate individual payments going through my node
 
+## Other contributions of Rene Pickhardt to the Lightning Network
+Here, i did not even explain the whole extent of what Pickhardt Payments brings, but merely scratched the surface.
+If you want to know more, i encourage you to follow the different things he published or the different talks he gave
+
 ##
 References:
 [Pickhardt payments](https://arxiv.org/abs/2107.05322)
