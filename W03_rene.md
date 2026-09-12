@@ -22,3 +22,6 @@ LND nodes for example, used to have a non null base fee of 1 sat, so the problem
 So out of Rene's research, came the suggestion that nodes should aim to set their base fee to 0, to encourage split payments as a way to increase payment's chance of success. At that time, the #zerobasefee hashtag went live.
 
 ## Payment valves
+
+References:
+Pickhardt Payments & Zero Base Fee for Lightning Network https://www.stephanlivera.com/361
