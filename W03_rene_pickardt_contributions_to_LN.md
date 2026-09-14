@@ -4,7 +4,7 @@ When starting to explore [clboss source code](https://github.com/ksedgwic/clboss
 This article is my attempt to explain a few of the big things Rene's research brought to the Lightning Network, and give my personal recognition for his work.
 
 ## #ZeroBaseFee
-When a Lightning node route payments from other nodes (Multi Path Payments), they are able to ask a fee in exchange for moving the liquidity in their channels for that payment. The fee calculation is based on two parameters of their outbound channel for that payment:
+When a Lightning node route payments from other nodes (payments requiring more than 1 channel to reach the destination), they are able to ask a fee in exchange for moving the liquidity in their channels for that payment. The fee calculation is based on two parameters of their outbound channel for that payment:
 - base fee : amount paid for any payment that goes this channel as outbound. It will be the same amount regardless of the value of the payment that is routed
 - fee rate : this parameter generates a fee proportional to the amount being moved.
 Any node can use any value they want for those two parameters for each of their channel, depending on the fee strategy they want.
