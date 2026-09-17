@@ -1,6 +1,6 @@
 # Rene Pickhardt's contributions to the Lightning Network
 
-When starting to explore [clboss source code](https://github.com/ksedgwic/clboss) this month, I discovered that [Core Lightning](https://github.com/ElementsProject/lightning) contains components named renepay and askrene. Those implement routing and payments algorithms inspired from [Pickhardt payments](https://arxiv.org/abs/2107.05322), researched by Rene Pickhardt and Stefan Richter. It's not often that your contribution to one domain is big enough that renowned projects name parts of their code after you!<br>
+When starting to explore [clboss source code](https://github.com/ksedgwic/clboss) this month, I discovered that [Core Lightning](https://github.com/ElementsProject/lightning) contains components named [renepay](https://github.com/ElementsProject/lightning/tree/master/plugins/renepay) and [askrene](https://github.com/ElementsProject/lightning/blob/master/plugins/askrene). Those implement routing and payments algorithms inspired from [Pickhardt payments](https://arxiv.org/abs/2107.05322), researched by Rene Pickhardt and Stefan Richter. It's not often that your contribution to one domain is big enough that renowned projects name parts of their code after you!<br>
 This article is my attempt to explain a few of the big things Rene's research brought to the Lightning Network, and give my personal recognition for his work.
 
 ## #ZeroBaseFee
@@ -9,7 +9,7 @@ When a Lightning node route payments from other nodes (payments requiring more t
 - fee rate : this parameter generates a fee proportional to the amount being moved.
 Any node can use any value they want for those two parameters for each of their channel, depending on the fee strategy they want.
 
-Then when someone wants to do a payment to another Lightning node they don't have a channel with, they will have to find possible / cheap routes between nodes for that payments, by using those fee parameters to estimate the cost of each path.<br>
+Then when a node wants to do a payment to another Lightning node they don't have a channel with, they will have to find possible / cheap routes between nodes for that payments, by using those fee parameters to estimate the cost of each path.<br>
 Here, it's intuitive that calculating the cost of each channel based on 2 parameters is slightly mor eexpensive than from a single parameter, but the difference is not substantial.
 Now, imagine you are trying to do a very big payment (which would have more chances to fail), and you also want to split it into multiple small payments to increase the chances of success. Now, you also have to find, at the same time:
 - how to split the amount into smaller amounts for good cost and chances of success
