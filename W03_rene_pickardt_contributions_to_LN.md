@@ -49,7 +49,8 @@ One of the first thing that i noticed, when i started setting max_htlc_msat, was
 For the remote nodes, this means they have lost one less payment attempt when my channel wouldn't have been useable. And a payment attempt is not cheap. If a multi-path payment is initiated, new commitment transactions must have been renegotiated. And if that payment fails at an intermediate hop, commitment transactions must be updated again to revert the intermediate state.
 
 Another thing that seems to occur, but that i can't prove only from my node's logs alone, is an increase of the number of routed payments.<br> Previously, after a certain number of payment failures for insufficient balance, payment attempts on some channels had a tendency to stop. Because nodes had classified my node as not useable after all the failure they experienced.<br>
-But when you start setting the max_htlc_amount to something lower than your channel's balance, then you know that the 'Insufficient balance' error will not occur. And if the max_htlc_msat value is too low for a payment attempt, then a node will simply not try to use you as a path. they won't store 'i have history of failed payments with that node'. So you end up higher in their own ranking of node reliability
+But when you start setting the max_htlc_amount to something lower than your channel's balance, then you know that the 'Insufficient balance' error will not occur. And if the max_htlc_msat value is too low for a payment attempt, then a node will simply not try to use you as a path.<br>
+They won't store 'i have history of failed payments with that node'. So you end up higher in their own ranking of node reliability
 
 ### Regarding privacy
 
