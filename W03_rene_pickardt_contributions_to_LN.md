@@ -13,13 +13,15 @@ Then, when a node wants to do a payment to another Lightning node they don't hav
 
 Here, it's intuitive that calculating the cost of each channel based on 2 parameters is slightly mor expensive than from a single parameter, but the difference is not substantial.
 
-Now, imagine you are trying to do a very big payment (which would have more chances to fail), and you also want to split it into multiple small payments to increase the chances of success. Now, you also have to find, at the same time:
+Now, imagine you are trying to do a very big payment (which would have a higher chance to fail), and you also want to use MPP (Mult path payments), to split it into multiple smaller payments, (smaller payments have a higher chance of success). Now, you also have to find, at the same time:
 - how to split the amount into smaller amounts for good cost and chances of success
 - AND what path to take for each of those split payments.
-So, it becomes obvious that the calculation is complex, so adding some parameters to it now can complicate the calculation a lot more. Rene's research expressed how algorithms suddenly become a lot harder to solve when there is a base fee to take into account.
 
-You might also have figured another obvious reason : if each payment has a base fee, then splitting a big payment into multiple smaller ones to increase it's chances of success also quickly makes it uneconomical to split it too much..
-LND nodes for example, used to have a non null base fee of 1 sat, so the problem was already quite widespread along the network.
+So, it becomes obvious that the calculation is complex, so adding some parameters to it now can complicate the calculation a lot more. This is why we sometimes say that pathfinding in Lightning is a NP-hard problem.<br>
+Rene's research expressed how algorithms suddenly become a lot harder to solve when there is a base fee to take into account. 
+
+You might also have figured another obvious disadvantage of the base fee : if each payment has a base fee, then splitting a big payment into multiple smaller ones to increase it's chances of success also quickly makes it uneconomical to split it too much, because tyou pay the base fee for each part that is sent..<br>
+LND nodes for example, used to have by default a non null base fee of 1 sat, so the problem was already quite widespread along the network.
 
 So out of Rene's research, came the suggestion that nodes should aim to set their base fee to 0, to encourage split payments as a way to increase payment's chance of success. At that time, the #zerobasefee hashtag went live.
 
