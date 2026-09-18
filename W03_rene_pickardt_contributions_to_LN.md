@@ -21,7 +21,7 @@ So, it becomes obvious that the calculation is complex, so adding some parameter
 Rene's research expressed how algorithms suddenly become a lot harder to solve when there is a base fee to take into account. 
 
 You might also have figured another obvious disadvantage of the base fee : if each payment has a base fee, then splitting a big payment into multiple smaller ones to increase it's chances of success also quickly makes it uneconomical to split it too much, because tyou pay the base fee for each part that is sent..<br>
-LND nodes for example, used to have by default a non null base fee of 1 sat, so the problem was already quite widespread along the network.
+LND nodes, for example, used to have by default a non null base fee of 1 sat, so the problem was already quite widespread along the network.
 
 So out of Rene's research, came the suggestion that nodes should aim to set their base fee to 0, to encourage split payments as a way to increase payment's chance of success. At that time, the #zerobasefee hashtag went live.
 
@@ -39,16 +39,16 @@ Rene argues that a feature that already exists in the Lightning Network, but is 
 And what it can bring is really easy to understand, even without requiring to have a complex strategy : imagine you set the maximum htlc size for a channel to some value that is always less than the current balance of the channel. Now, there is no way another node will ask you to route a payment that is not possible because you wouldn't have enough liquidity on your side of the channel!<br>
 (Agreed, this is a simplification, since the max_htlc_mstat value is, as its name suggest, per htlc. So you could still overflow this with multiple ongoing HTLCs)
 
-Obviously, a difficulty of this is that, unlike channel fee parameters, you can't just choose a fee value once per channel. You will need to have some kind of service that will regularly updates the maximum htlc size
+Obviously, a difficulty of this is that, unlike channel fee parameters, you can't just choose a fee value once per channel. You will need to have some kind of service that will regularly updates the maximum htlc size.
 
 ### Personal return of experience
 I use [scripts](https://github.com/bartoli/lnshortcut/blob/master/lnd_chan_mgr.py) for managing channel policies of the channels of [my routing node](https://amboss.space/node/02c521e5e73e40bad13fb589635755f674d6a159fd9f7b248d286e38c3a46f8683), setting max_htlc_msat value, among other fee policy parameters.
-The scripts run regularly (but not too often because you can be banned by nodes if you 'spam' too much gossip messages to propagate your new channel settings), and adapt to the current state of the channels or the rest of the network.
+The scripts run regularly (but not too often because you can be banned by nodes if you 'spam' too much gossip messages to propagate your new channel settings), and adapt my channels policies based on their current state or the rest of the network.
 
-One of the first thing that i noticed, when i started setting max_htlc_msat, was in the logs of my LND node: The log was previously filled with 'Insufficient balance' errors because of all the nodes trying to route payments through my depleted channnels. Now, i almost never see those errors.<br>
+One of the first thing that i noticed, when i started setting max_htlc_msat, was in the logs of my LND node: The log was previously filled with 'Insufficient balance' errors because of all the nodes trying to route payments through my depleted channnels. Now, i almost never see those errors!<br>
 For the remote nodes, this means they have lost one less payment attempt when my channel wouldn't have been useable. And a payment attempt is not cheap. If a multi-path payment is initiated, new commitment transactions must have been renegotiated. And if that payment fails at an intermediate hop, commitment transactions must be updated again to revert the intermediate state.
 
-Another thing that seems to occur, but that i can't prove only from my node's logs alone, is an increase of the number of routed payments. Previously, after a certain number of payment failure for insufficient balance, payment attempts on some channels had a tendency to stop. Because nodes had classified my node as not useable after all the failure they experienced.
+Another thing that seems to occur, but that i can't prove only from my node's logs alone, is an increase of the number of routed payments.<br> Previously, after a certain number of payment failures for insufficient balance, payment attempts on some channels had a tendency to stop. Because nodes had classified my node as not useable after all the failure they experienced.
 But when you start setting the max_htlc_amount to something lower than your channel's balance, then you know that the 'Insufficient balance' error will not occur. And if the max_htlc_msat value is too low for a payment attempt, then a node will simply not try to use you as a path. they won't store 'i have history of failed payments with that node'. So you end up higher in their own ranking of node reliability
 
 ### Regarding privacy
