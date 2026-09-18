@@ -54,7 +54,7 @@ They won't store 'i have history of failed payments with that node'. So you end 
 
 ### Regarding privacy
 
-One of the arguments against using *max_htlc_msat* this way is privacy. One could agree that channels not disclosing their balance is actually a feature, and not a limitation. You don't want to disclose what payment is occurring. And if you publish your change of channel balances when updating *max_htlc_msat*, then it kind of is what you are doing.
+One of the arguments against using *max_htlc_msat* this way is privacy. One could agree that channels not disclosing their balance is actually a feature, and not a limitation. You don't want to disclose what payment is occurring. And if you publish your change of channel balances when updating *max_htlc_msat*, then it kind of is what you are doing. Because if someone is monitoring then change of balances of all your channels, they can guess the directions and amount sof some payments.
 
 Here is my answer:
 - I am running a routing node. So my personal transactions are not really visible. You may not want to do this if your node is only for personal use
@@ -63,7 +63,7 @@ Here is my answer:
 
 ## Other contributions of Rene Pickhardt to the Lightning Network
 Here, i did not even explain the whole extent of what Pickhardt Payments brings, but merely scratched the surface.
-If you want to know more, i encourage you to follow the different things he published or the different talks he gave
+If you want to know more, i encourage you to follow the different things he published or the different talks he gave.
 
 ##
 References:
