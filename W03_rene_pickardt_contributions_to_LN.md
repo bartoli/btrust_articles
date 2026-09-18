@@ -66,7 +66,7 @@ Here, i did not even explain the whole extent of what Pickhardt Payments brings,
 If you want to know more, i encourage you to follow the different things he published or the different talks he gave.
 
 ##
-References:
-[Pickhardt payments](https://arxiv.org/abs/2107.05322)
-[Pickhardt Payments & Zero Base Fee for Lightning Network](https://www.stephanlivera.com/361)
+References:<br>
+[Pickhardt payments](https://arxiv.org/abs/2107.05322)<br>
+[Pickhardt Payments & Zero Base Fee for Lightning Network](https://www.stephanlivera.com/361)<br>
 [The power of valves for better flow control, improved reliability & lower expected payment failure rates on the Lightning Network](https://www.bitmex.com/blog/the-power-of-htlc_maximum_msat-as-a-control-valve-for-better-flow-control-improved-reliability-and-lower-expected-payment-failure-rates-on-the-lightning-network)
