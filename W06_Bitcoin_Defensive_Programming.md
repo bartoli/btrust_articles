@@ -30,6 +30,12 @@ The goal of *verifyPubKey()* is to theck if a public key corresponds to the secr
 If the signature can be associated with the public key given in argument, then we can attest that this public key corresponds to that private key.
 
 This is similar to what is done to allow spending bitcoin coins. When a transaction sends satoshis, it sends them to some bitcoin address, which is a public key.
-And when the recipient wants to spend those satoshis, what they have to provide is the proof that they own this address. From the private key only them own, they sign the transaction data.
+And when the recipient wants to spend those satoshis, what they have to provide is the proof that they own this address.
+From the private key only them know, they can sign the transaction data.
 Then, bitcoin nodes are able to check if the signature of that data matches the address (public key) to allow spending this transaction output.
 
+That's all good.
+
+But wasn't there a really simpler (and faster?) way to do the public key verication?
+
+When spending coins, only the owner knows the private key
