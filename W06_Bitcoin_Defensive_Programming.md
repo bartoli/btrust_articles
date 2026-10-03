@@ -1,4 +1,4 @@
-# Why bitcoin core does not even trust the computer
+# Why Bitcoin Core Doesn't Even Trust Its Own Code
 
 Since I will have to manage keys/identities in my own project, I was looking at how they are implemented in
 [bitcoin core repository](https://github.com/bitcoin/bitcoin/).
@@ -71,4 +71,10 @@ Bitcoin's value comes from the proofs mathematics can provide that it will behav
 
 Bitcoin core has to make sure there is no fault anywhere in this chain, from some other part of the source code that would later become buggy, to some cosmic ray flipping a bit somewhere in the procesor's circuitry.
 
-And THIS, is how much rigor has to go into writing code fo Bitcoin core.
+And THIS, is how much rigor has to go into writing code fo Bitcoin core. And also the kind of thing you discover by actually reading and reviewing Bitcoin Core.
+
+This is also an example of why contributing to Bitcoin Core isn't necessarily about writing hundreds of lines of new code.
+Reading existing code, asking why something apparently redundant exists, looking at its history, and verifying the reasoning behind it is already valuable contribution work.
+In fact, Bitcoin Core explicitly encourages new contributors to start with review and testing, because these are among the most important bottlenecks in the project.
+
+In this case, a few lines of apparently redundant code led me from a cryptographic operation, through Bitcoin's history, to a much broader lesson about defensive programming in security-critical software.
