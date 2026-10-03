@@ -17,16 +17,28 @@ bool CKey::VerifyPubKey(const CPubKey& pubkey) const {
     return pubkey.Verify(hash, vchSig);
 }
 ```
-The CKey class manages a bitcoin private key. the *keydata* member stores the private key,
-and various operations on it are provided by the methods of the class.
-For example, the method *GetPubKey()* returns the public key associated with the secret value in *keydata*.
-the result of GetPubKey() is basically the multiplication by the point G by the secret. G is not just a simple numeric value, but a point on the elliptic curve. So it's not really a cheap multiplication, but still a 'simple' one.
+The *CKey* class manages a bitcoin private key. Its' *keydata* member stores the private key.
+And various operations on that private key are provided by the methods of the class.
 
-Now look at what *VerifyPubKey()* is doing (let's ignore notions of compression for now).
+For example, the method *GetPubKey()* returns the public key associated with the secret value in *keydata*.
+the result of GetPubKey() is basically the multiplication by the point G by the secret. G is not just a simple numeric value, but a point on the *secp256k1 elliptic curve*. So it's not really a cheap multiplication, but still a 'simple' one.
+
+Now look at what *VerifyPubKey()* above is doing (let's ignore notions of compression  of x-only pubkeys for now).
 The goal of *verifyPubKey()* is to theck if a public key corresponds to the secret of this CKey object. For this:
 - It generates a string with a random part
+  ```
+    std::string str = "Bitcoin key verification\n";
+    GetRandBytes(rnd);
+    uint256 hash{Hash(str, rnd)};
+  ```
 - Then it signs the message using the private key
+  ```
+      Sign(hash, vchSig);
+  ```
 - And finally, it checks that the public key can be associated with this signature.
+  ```
+  return pubkey.Verify(hash, vchSig);
+  ```
 If the signature can be associated with the public key given in argument, then we can attest that this public key corresponds to that private key.
 
 This is similar to what is done to allow spending bitcoin coins. When a transaction sends satoshis, it sends them to some bitcoin address, which is a public key.
@@ -38,4 +50,18 @@ That's all good.
 
 But wasn't there a really simpler (and faster?) way to do the public key verication?
 
-When spending coins, only the owner knows the private key
+When spending coins, only the owner knows the private key. So they (nodes validating the transaction spending an output) have to, for example, check the signature of some known data of the transaction against a pubkey.
+
+In VerifyPubKey(), the class knows the private key. So could we not simply compute the public key associated with that private key, then just compare it with the public key given in argument? As seen before, this would only cost one multiplication and one comparison?
+
+Mathematically, we absolutely can. It's also how an AI would implement this method. Because it is mathematically correct. But there is a reason why the Bitcoin core team chose a 'slower' way.
+
+And that reason can be seen in the Git history on the project.
+In commit [d0c41a73501a0bf94fca91be5fb38ab039490843](https://github.com/bitcoin/bitcoin/commit/d0c41a73501a0bf94fca91be5fb38ab039490843), we can see that compating pubkeys was exactly what was done up to 2014. And the reason why it was changed is explained in the commit message :  
+```
+Add sanity check after key generation
+Add a sanity check to prevent cosmic rays from flipping a bit in the
+generated public key, or bugs in the elliptic curve code. This is
+simply done by signing a (randomized) message, and verifying the
+result.
+```
