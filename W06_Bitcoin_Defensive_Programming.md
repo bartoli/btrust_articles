@@ -24,7 +24,7 @@ For example, the method *GetPubKey()* returns the public key associated with the
 the result of GetPubKey() is basically the multiplication of the point G by the secret. G is not just a simple numeric value, but a point on the *secp256k1 elliptic curve*. So it's not really a cheap multiplication, but still a 'simple' operation.
 
 Now look at what *VerifyPubKey()* above is doing (let's ignore notions of compression or x-only pubkeys for now).
-The goal of *verifyPubKey()* is to theck if a public key corresponds to the secret of this CKey object. For this:
+The goal of *VerifyPubKey()* is to theck if a public key corresponds to the secret of this CKey object. For this:
 - It generates a string with a random part
   ```
     std::string str = "Bitcoin key verification\n";
