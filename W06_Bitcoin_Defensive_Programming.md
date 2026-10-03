@@ -52,7 +52,7 @@ But wasn't there a really simpler (and faster?) way to do the public key vericat
 
 When spending coins, only the owner knows the private key. So they (nodes validating the transaction spending an output) have to, for example, check the signature of some known data of the transaction against a pubkey.
 
-In VerifyPubKey(), the class knows the private key. So could we not simply compute the public key associated with that private key, then just compare it with the public key given in argument? As seen before, this would only cost one multiplication and one comparison?
+But in VerifyPubKey(), the class DOES know the private key. So could we not simply compute the public key associated with that private key, then just compare it with the public key given in argument? As seen before, this would only cost one multiplication and one comparison?
 
 Mathematically, we absolutely can. It's also how an AI would implement this method. Because it is mathematically correct. But there is a reason why the Bitcoin core team chose a 'slower' way.
 
