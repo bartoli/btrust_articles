@@ -57,7 +57,7 @@ In VerifyPubKey(), the class knows the private key. So could we not simply compu
 Mathematically, we absolutely can. It's also how an AI would implement this method. Because it is mathematically correct. But there is a reason why the Bitcoin core team chose a 'slower' way.
 
 And that reason can be seen in the Git history on the project.
-In commit [d0c41a73501a0bf94fca91be5fb38ab039490843](https://github.com/bitcoin/bitcoin/commit/d0c41a73501a0bf94fca91be5fb38ab039490843), we can see that compating pubkeys was exactly what was done up to 2014. And the reason why it was changed is explained in the commit message :  
+In commit [d0c41a73501a0bf94fca91be5fb38ab039490843](https://github.com/bitcoin/bitcoin/commit/d0c41a73501a0bf94fca91be5fb38ab039490843) from Pieter Wuille, we can see that compating pubkeys was exactly what was done up to 2014 / v0.10. And the reason why it was changed is explained in the commit message :
 ```
 Add sanity check after key generation
 Add a sanity check to prevent cosmic rays from flipping a bit in the
@@ -65,3 +65,10 @@ generated public key, or bugs in the elliptic curve code. This is
 simply done by signing a (randomized) message, and verifying the
 result.
 ```
+So it's not that just comparing the argument to the public key that can be computed is wrong.
+
+Bitcoin's value comes from the proofs mathematics can provide that it will behave as intended for all participants. But bitcoin core is not opening some portal to a world where pure mathematics rule. Bitcoin core is implemented in a programming language, compiled to some machine code, for some physical processor, that makes advanced use of the laws of physics or our world.
+
+Bitcoin core has to make sure there is no fault anywhere in this chain, from some other part of the source code that would later become buggy, to some cosmic ray flipping a bit somewhere in the procesor's circuitry.
+
+And THIS, is how much rigor has to go into writing code fo Bitcoin core.
