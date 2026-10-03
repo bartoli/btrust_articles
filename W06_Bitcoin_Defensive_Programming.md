@@ -1,5 +1,5 @@
 # Why Bitcoin Core Doesn't Even Trust Its Own Code
-
+## Why is this check here?
 Since I will have to manage keys/identities in my own project, I was looking at how they are implemented in
 [bitcoin core repository](https://github.com/bitcoin/bitcoin/).
 I stumbled upon this method : 
@@ -50,12 +50,14 @@ That's all good.
 
 But wasn't there a really simpler (and faster?) way to do the public key verication?
 
+## Couldn't we just compute the public key?
 When spending coins, only the owner knows the private key. So they (nodes validating the transaction spending an output) have to, for example, check the signature of some known data of the transaction against a pubkey.
 
 But in VerifyPubKey(), the class DOES know the private key. So could we not simply compute the public key associated with that private key, then just compare it with the public key given in argument? As seen before, this would only cost one multiplication and one comparison?
 
 Mathematically, we absolutely can. It's also how an AI would implement this method. Because it is mathematically correct. But there is a reason why the Bitcoin core team chose a 'slower' way.
 
+## Why does Bitcoin Core do this?
 And that reason can be seen in the Git history on the project.
 In commit [d0c41a73501a0bf94fca91be5fb38ab039490843](https://github.com/bitcoin/bitcoin/commit/d0c41a73501a0bf94fca91be5fb38ab039490843) from Pieter Wuille, we can see that compating pubkeys was exactly what was done up to 2014 / v0.10. And the reason why it was changed is explained in the commit message :
 ```
@@ -71,7 +73,12 @@ Bitcoin's value comes from the proofs mathematics can provide that it will behav
 
 Bitcoin core has to make sure there is no fault anywhere in this chain, from some other part of the source code that would later become buggy, to some cosmic ray flipping a bit somewhere in the procesor's circuitry.
 
-And THIS, is how much rigor has to go into writing code fo Bitcoin core. And also the kind of thing you discover by actually reading and reviewing Bitcoin Core.
+## So, where else does Bitcoin Core make this assumption?
+Once i understood the issue, i spent some time investigating the rest of the code base, in case some other part of the code still had the issue, or if some newer code additions had mistakenly added back the same fragility. Fortunately, this was not the case. there was merley a single place where we were still compating the result of GetPubKey() to en expected public key in MuSig code, but the end of the function still had a proper verification later.
+This was like a treasure hunt for me. In the end, i was slightly disappointed to not have found a place in the code I could have contributed to fix, but i think i also was more pleasantly surprised at the quality of the existing code, thanks to everyone that has been there before us.
+
+## What does this have to do with contributing?
+THIS, is how much rigor has to go into writing code fo Bitcoin core. And also the kind of thing you discover by actually reading and reviewing Bitcoin Core.
 
 This is also an example of why contributing to Bitcoin Core isn't necessarily about writing hundreds of lines of new code.
 Reading existing code, asking why something apparently redundant exists, looking at its history, and verifying the reasoning behind it is already valuable contribution work.
