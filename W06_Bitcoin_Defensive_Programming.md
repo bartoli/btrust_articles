@@ -1,6 +1,6 @@
 # Why bitcoin core does not even trust the computer
 
-Since i will have to manage keys/identities in my own project, i was looking at how they are implemented in
+Since I will have to manage keys/identities in my own project, I was looking at how they are implemented in
 [bitcoin core repository](https://github.com/bitcoin/bitcoin/).
 I stumbled upon this method : 
 ```
