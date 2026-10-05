@@ -41,7 +41,7 @@ The goal of *VerifyPubKey()* is to theck if a public key corresponds to the secr
   ```
 If the signature can be associated with the public key given in argument, then we can attest that this public key corresponds to that private key.
 
-This is similar to what is done to allow spending bitcoin coins. When a transaction sends satoshis, it sends them to some bitcoin address, which is a public key.
+This is similar to what is done to allow spending bitcoin coins. When a transaction sends satoshis, it sends them to some bitcoin address, which is some way of encoding a public key.
 And when the recipient wants to spend those satoshis, what they have to provide is the proof that they own this address.
 From the private key only they know, they can sign the transaction data.
 Then, bitcoin nodes are able to check if the signature of that data matches the address (public key) to allow spending this transaction output.
@@ -61,7 +61,7 @@ But there is a reason why the Bitcoin core team chose a 'slower' way.
 
 ## Why does Bitcoin Core do this?
 And that reason can be seen in the Git history on the project.
-In commit [d0c41a73501a0bf94fca91be5fb38ab039490843](https://github.com/bitcoin/bitcoin/commit/d0c41a73501a0bf94fca91be5fb38ab039490843) from Pieter Wuille, we can see that compating pubkeys was exactly what was done up to 2014 / v0.10. And the reason why it was changed is explained in the commit message :
+In commit [d0c41a73501a0bf94fca91be5fb38ab039490843](https://github.com/bitcoin/bitcoin/commit/d0c41a73501a0bf94fca91be5fb38ab039490843) from Pieter Wuille, we can see that computing pubkeys was exactly what was done up to 2014 / v0.10. And the reason why it was changed is explained in the commit message :
 ```
 Add sanity check after key generation
 Add a sanity check to prevent cosmic rays from flipping a bit in the
