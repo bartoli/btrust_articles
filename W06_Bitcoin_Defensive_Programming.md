@@ -17,7 +17,7 @@ bool CKey::VerifyPubKey(const CPubKey& pubkey) const {
     return pubkey.Verify(hash, vchSig);
 }
 ```
-The *CKey* class manages a bitcoin private key. Its' *keydata* member stores the private key.
+The *CKey* class manages a bitcoin private key. Its *keydata* member stores the private key.
 And various operations on that private key are provided by the methods of the class.
 
 For example, the method *GetPubKey()* returns the public key associated with the secret value in *keydata*.
@@ -43,7 +43,7 @@ If the signature can be associated with the public key given in argument, then w
 
 This is similar to what is done to allow spending bitcoin coins. When a transaction sends satoshis, it sends them to some bitcoin address, which is a public key.
 And when the recipient wants to spend those satoshis, what they have to provide is the proof that they own this address.
-From the private key only them know, they can sign the transaction data.
+From the private key only they know, they can sign the transaction data.
 Then, bitcoin nodes are able to check if the signature of that data matches the address (public key) to allow spending this transaction output.
 
 That's all good.
@@ -78,7 +78,7 @@ Bitcoin core has to make sure there is no fault anywhere in this chain, from som
 ## So, where else does Bitcoin Core make this assumption?
 Once I understood the issue, I spent some time investigating the rest of the code base, in case some other part of the code still had the issue, or if some newer code additions had mistakenly added back the same fragility.
 
-Fortunately, this was not the case. there was merely a single place where we were still comparing the result of GetPubKey() to en expected public key in MuSig code, but the end of the function still had a proper verification later.
+Fortunately, this was not the case. There was merely a single place where we were still comparing the result of GetPubKey() to en expected public key in MuSig code, but the end of the function still had a proper verification later.
 
 This was like a treasure hunt for me. In the end, i was slightly disappointed to not have found a place in the code I could have contributed to fix, but i think i also was more pleasantly surprised at the quality of the existing code, thanks to everyone that has been there before us.
 
