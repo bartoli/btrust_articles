@@ -1,8 +1,12 @@
 # Why Bitcoin Core Doesn't Even Trust Its Own Code
 ## Why is this check here?
-Since I will have to manage keys/identities in my own project, I was looking at how they are implemented in
+One project i am working on will require being able to manipulate addresses of Bitcoin wallets, or Nostr identities.
+Those share some elliptic curve primitives (secp256k1), encoding rules (bech32), and other things.
+
+So I was looking at the most peer reviewed codebase which implements them:
 [bitcoin core repository](https://github.com/bitcoin/bitcoin/).
-I stumbled upon this method : 
+
+Then I stumbled upon this method : 
 ```
 bool CKey::VerifyPubKey(const CPubKey& pubkey) const {
     if (pubkey.IsCompressed() != fCompressed) {
@@ -41,7 +45,7 @@ The goal of *VerifyPubKey()* is to theck if a public key corresponds to the secr
   ```
 If the signature can be associated with the public key given in argument, then we can attest that this public key corresponds to that private key.
 
-This is similar to what is done to allow spending bitcoin coins. When a transaction sends satoshis, it sends them to some bitcoin address, which is some way of encoding a public key.
+This is similar to what is done to allow spending bitcoin coins. When a transaction sends satoshis, it sends them to some bitcoin address, which can be seen as a specific encoding for a public key.
 And when the recipient wants to spend those satoshis, what they have to provide is the proof that they own this address.
 From the private key only they know, they can sign the transaction data.
 Then, bitcoin nodes are able to check if the signature of that data matches the address (public key) to allow spending this transaction output.
