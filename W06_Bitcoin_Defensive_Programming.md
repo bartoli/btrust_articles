@@ -78,7 +78,7 @@ Bitcoin core has to make sure there is no fault anywhere in this chain, from som
 ## So, where else does Bitcoin Core make this assumption?
 Once I understood the issue, I spent some time investigating the rest of the code base, in case some other part of the code still had the issue, or if some newer code additions had mistakenly added back the same fragility.
 
-Fortunately, this was not the case. There was merely a single place where we were still comparing the result of GetPubKey() to en expected public key in MuSig code, but the end of the function still had a proper verification later.
+Fortunately, this was not the case. There was merely a single place where we were still comparing the result of GetPubKey() to an expected public key in MuSig code, but the end of the function still had a proper verification later.
 
 This was like a treasure hunt for me. In the end, i was slightly disappointed to not have found a place in the code I could have contributed to fix, but i think i also was more pleasantly surprised at the quality of the existing code, thanks to everyone that has been there before us.
 
