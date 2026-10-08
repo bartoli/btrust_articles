@@ -1,4 +1,7 @@
 # Why Bitcoin Core Doesn't Even Trust Its Own Code
+
+*This article was written during my BTrust fellowship. The theme of the week was centered around contributing to Bitcoin Core.*
+
 ## Why is this check here?
 One project i am working on will require being able to manipulate addresses of Bitcoin wallets, or Nostr identities.
 Those share some elliptic curve primitives (secp256k1), encoding rules (bech32), and other things.
