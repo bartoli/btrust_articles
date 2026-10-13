@@ -80,7 +80,7 @@ So it's not that just comparing the argument to the public key that can be compu
 
 Bitcoin's value comes from the proofs mathematics can provide that it will behave as intended for all participants. But bitcoin core is not opening some portal to a world where pure mathematics rule. Bitcoin core is implemented in a programming language, compiled to some machine code, for some physical processor, that makes advanced use of the laws of physics or our world.
 
-Bitcoin core has to make sure there is no fault anywhere in this chain, from some other part of the source code that would later become buggy, to some cosmic ray flipping a bit somewhere in the procesor's circuitry.
+Bitcoin core has to make sure there is no fault anywhere in this chain, from some other part of the source code that would later become buggy, to some cosmic ray flipping a bit somewhere in the processor's circuitry.
 
 ## So, where else does Bitcoin Core make this assumption?
 Once I understood the issue, I spent some time investigating the rest of the code base, in case some other part of the code still had the issue, or if some newer code additions had mistakenly added back the same fragility.
