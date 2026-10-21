@@ -100,7 +100,24 @@ So we did cheap tricks to reduce the issue when Alice is using multiple utxos to
 
 We really need to add some variable in the equation that depends on alice's spent output and is unique for each payment.
 The pubkey owning Alice's utxos might not be, but the outpoint (txid+output number) of those outputs is!
-And since the outpoint values will be unique, no need to include the outpoint of utxo being spent. A formula selects the outpoint from one of the inputs of the paying transaction, and transforms it into what we will call *input_hash* 
+And since the outpoint values will be unique, no need to include the outpoint of utxo being spent. A formula selects the outpoint from one of the inputs of the paying transaction, and transforms it into what we will call *input_hash*
+
+The formulas become:
+
+- p = b_scan + (S.input_hash)
+- P = B_scan = (S.input_hash).G 
+
+### More variability from the output side
+
+Wait what? Did we not just make sure any payment would send to a different address because no two transactions will spend exactly the same combination if utxos? Yes we did. For any two transactions, payments to bob's sp address will send to a different address. But what if the transactions pays to bob's sp address twice? Then, exactly the same utxos would be sent to the same destination address.
+And if one is using silent payments to avoid linkability, which whole point was that each received odutput is sent to a different address, this defeats the purpose!
+We want that even in the same transactions, spending the same utxos, if two outputs are sent to the same sp address, then this will result in money being sent to two different addresses. That will hid a bit more which output goes to whom, and what is the actual amount being exchanged.
+For this, we include a last vairable in the formula : k. k will be a counter, starting at 0 for the first output going to bob's sp address in the transaction. Then, for each new output of the transaction going to bob's sp address, then k is incremented.
+
+- p = b_scan + H(S.input_hash||k)
+- P = B_scan + H(S.input_hash||k).G
+
+And finally that's it! Every payment going to bob's SP address will go to a different taproot output address, only alice and bob will be able to know that they correspond to a payment of Alice to Bob's sp address, and only Bob will be able to spend them!
 
 
 
