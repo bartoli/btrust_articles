@@ -103,7 +103,7 @@ So we did cheap tricks to reduce the issue when Alice is using multiple UTXOs to
 
 We really need to add some variable in the equation that depends on alice's spent output and is unique for each payment.
 The pubkey owning Alice's UTXOs might not be, but the outpoint (txid+output number) of those outputs is!
-And since the outpoint values will be unique, no need to include the outpoint of the UTXO being spent. A formula selects the outpoint from one of the inputs of the paying transaction, and transforms it into what we will call *input_hash*
+And since the outpoint values will be unique, no need to include all outpoints of the UTXOs being spent. A formula selects the outpoint from one of the inputs of the paying transaction, and transforms it into what we will call *input_hash*
 
 The formulas become:
 
