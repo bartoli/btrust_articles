@@ -105,7 +105,7 @@ And since the outpoint values will be unique, no need to include the outpoint of
 The formulas become:
 
 - p = b_spend + (S.input_hash)
-- P = B_spend = (S.input_hash).G 
+- P = B_spend + (S.input_hash).G 
 
 ### More variability from the output side
 
