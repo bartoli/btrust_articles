@@ -13,8 +13,8 @@ The second goal is that the payer does not have to talk to the receiver to find 
 Some conventions:
 A : big single letters are public keys (or points on the elliptic curve)
 a : small single letters are private keys
-Alice is the payer and has key pairs that are variations of a/A
-Bob is the receiver and has key pairs that are variations of b/B
+Alice is the payer and has key pairs that are variations of (a,A)
+Bob is the receiver and has key pairs that are variations of (b,B)
 || marks concatenation
 . is a multiplication.
 
@@ -26,8 +26,8 @@ To receive silent payments, bob will need two things :
 - A secret to share with people wanting to send him money, so they both can compute the same destination adresses
 - A secret allowing him only to spend the output address that has been paid.µ
 So Bob will compute on his side two key pairs :
-- one to *scan* for adresses that correspond to payments to him : a_scan / A_scan
-- one to *spend* those adresses : a_spend / A_spend
+- one to *scan* for adresses that correspond to payments to him : (a_scan,A_scan)
+- one to *spend* those adresses : (a_spend,A_spend)
 The silent payment address is some special encoding that actually stores the public values of B_scan and B_spend. ANd bob keeps the associated private values
 
 ## The shared secret
@@ -54,12 +54,12 @@ p : the associated private key to spend ouptuts sent to P. Only Bob must be able
 Again, both must satisfy the equation *P = p.G*, so ratio between them must be the factor G.<br>
 p must depend on b_spend only bob knows, so P should depend on B_spend, which is b_spend.G<br>
 
-- p = b_scan
-- P = B_scan * G
+- p = b_spend
+- P = B_spend * G
 
 P must also depend on the shared secret S. Let's just add it, keeping a ratio of G between both keys
- - p = b_scan + S
- - P = B_scan + (S.G)
+ - p = b_spend + S
+ - P = B_spend + (S.G)
 
 ## Now let's generate unique adresses per payment!
 We have a base formula that allows only Alice and Bob to respectively decide or detect that it a silent payment from Alice to Bob. And that only Bob can compute the secret key to spend it's output.
@@ -104,8 +104,8 @@ And since the outpoint values will be unique, no need to include the outpoint of
 
 The formulas become:
 
-- p = b_scan + (S.input_hash)
-- P = B_scan = (S.input_hash).G 
+- p = b_spend + (S.input_hash)
+- P = B_spend = (S.input_hash).G 
 
 ### More variability from the output side
 
@@ -114,8 +114,8 @@ And if one is using silent payments to avoid linkability, which whole point was 
 We want that even in the same transactions, spending the same utxos, if two outputs are sent to the same sp address, then this will result in money being sent to two different addresses. That will hid a bit more which output goes to whom, and what is the actual amount being exchanged.
 For this, we include a last vairable in the formula : k. k will be a counter, starting at 0 for the first output going to bob's sp address in the transaction. Then, for each new output of the transaction going to bob's sp address, then k is incremented.
 
-- p = b_scan + H(S.input_hash||k)
-- P = B_scan + H(S.input_hash||k).G
+- p = b_spend + H(S.input_hash||k)
+- P = B_spend + H(S.input_hash||k).G
 
 And finally that's it! Every payment going to bob's SP address will go to a different taproot output address, only alice and bob will be able to know that they correspond to a payment of Alice to Bob's sp address, and only Bob will be able to spend them!
 
