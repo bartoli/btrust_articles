@@ -5,7 +5,7 @@ Silent Payments (BIP-352) will enable one to share a single static address to re
 In this article, let's concentrate on the math that makes this possible. 
 We will not start from the final equations and explain what each part does.
 We will try to start from the **need**, and build up what is needed until the final formula is reached and understood.
-This way:  **don't trust, verify!**
+This way: **don't trust, verify!**
 
 The main goal we want to achieve is that when someone wants to receive payments, given the same 'destination address' (in quotes, because it is not strictly a Bitcoin address), each payment will go to an actual Bitcoin address that is unique each time.<br>
 The second goal is that the payer does not have to talk to the receiver to find that destination address.<br>
@@ -55,7 +55,7 @@ We want to be able to calculate two things :
 P : the public key Alice needs to send to. Alice and Bob, and only them, must be able to compute them. <br>
 p : the associated private key to spend outputs sent to P. Only Bob must be able to compute it.<br>
 Again, both must satisfy the equation *P = p.G*.<br>
-p must depend on b_spend only bob knows, so P should depend on B_spend, which is b_spend.G<br>
+p must depend on b_spend only Bob knows, so P should depend on B_spend, which is b_spend.G<br>
 
 - p = b_spend
 - P = b_spend * G = B_spend
@@ -101,7 +101,7 @@ Here, we can see one of the reasons silent payments are more complicated to impl
 #### The real Variability on Alice's side
 So we did cheap tricks to reduce the issue when Alice is using multiple UTXOs to pay, but did not really solve the problem.
 
-We really need to add some variable in the equation that depends on alice's spent output and is unique for each payment.
+We really need to add some variable in the equation that depends on Alice's spent output and is unique for each payment.
 The pubkey owning Alice's UTXOs might not be, but the outpoint (txid+output number) of those outputs is!
 And since the outpoint values will be unique, no need to include all outpoints of the UTXOs being spent. A formula selects the outpoint from one of the inputs of the paying transaction, and transforms it into what we will call *input_hash*
 
@@ -123,11 +123,3 @@ For this, we include a last variable in the formula: k. k will be a counter, sta
 - P = B_spend + H(S.input_hash || k).G
 
 And finally, that's it! Every payment going to Bob's SP address will go to a different Taproot output address; only Alice and Bob will be able to know that they correspond to a payment from Alice to Bob's SP address, and only Bob will be able to spend them!
-
-
-
-
-
-
-
-
