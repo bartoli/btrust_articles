@@ -112,8 +112,10 @@ The formulas become:
 
 ### More variability from the output side
 
-Wait what? Did we not just make sure any payment would send to a different address because no two transactions will spend exactly the same combination of UTXOs? Yes, we did. For any two transactions, payments to Bob's SP address will send to a different address. But what if the transactions pay to Bob's SP address twice? Then, exactly the same UTXOs would be sent to the same destination address.
+Wait what? Did we not just make sure any payment would send to a different address because no two transactions will spend exactly the same combination of UTXOs?<br>
+Yes, we did. For any two transactions, payments to Bob's SP address will send to a different address. But what if the transactions pay to Bob's SP address twice? Then, exactly the same UTXOs would be sent to the same destination address.<br>
 And if one is using silent payments to avoid linkability, which whole point was that each received output is sent to a different address, this defeats the purpose!
+
 We want that even in the same transactions, spending the same UTXOs, if two outputs are sent to the same sp address, then this will result in money being sent to two different addresses. That will hide a bit more about which output goes to whom, and what the actual amount being exchanged is.
 For this, we include a last variable in the formula: k. k will be a counter, starting at 0 for the first output going to Bob's SP address in the transaction. Then, for each new output of the transaction going to Bob's SP address, k is incremented.
 
