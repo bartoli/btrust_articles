@@ -4,7 +4,7 @@ Silent Payments  (BIP-352) will enable one to share a single static address to r
 
 In this article, let's concentrate on the math that makes this possible. 
 We will not start from the final equations and explain what each part does.
-We will try to start from the *need*, and build up what is needed until the final formula is reached and understood.
+We will try to start from the **need**, and build up what is needed until the final formula is reached and understood.
 this way, you can **don't trust, verify!**
 
 The main goal we want to achieve is that when someone wants to receive payments, given the same 'destination address' (in quotes, because it is not strictly a Bitcoin address), each payment will be go to an actual Bitcoin address that is unique each time.<br>
@@ -52,7 +52,7 @@ That shared secret will be named S. A will compute a.B_scan to get it, and Bob w
 
 ## The base formula
 We want to be able to calculate two things : 
-P : the public key Alice needs to send to. Alice and Bob, and only them, must be able to compute them. < br>
+P : the public key Alice needs to send to. Alice and Bob, and only them, must be able to compute them. <br>
 p : the associated private key to spend outputs sent to P. Only Bob must be able to compute it.<br>
 Again, both must satisfy the equation *P = p.G*, so the ratio between them must be the factor G.<br>
 p must depend on b_spend only bob knows, so P should depend on B_spend, which is b_spend.G<br>
@@ -96,7 +96,7 @@ Why not use a more complex aggregation that also accounts for the order of the p
 - we still are not really fixing the issue that if that set of outputs is used again, they would pay to the same destination address; merley reducing it. So it's really not worth it.
 
 *On multisig payments:*
-Here, we can see one of the reasons the chosen formulas don't allow multisig payments (inputs from multiple people) : to compute S on the side of all the Alices paying, each peer paying a part would need to know the private keys owning the outputs the other payers are spending in order to compute the aggregated A value!
+Here, we can see one of the reasons silent payments are more complicated to implement for payments with inputs from multiple people : to compute S on the side of all the ones paying, each peer paying a part would need to know the private keys owning the outputs the other payers are spending in order to compute the aggregated A value!
 
 #### The real Variability on Alice's side
 So we did cheap tricks to reduce the issue when Alice is using multiple UTXOs to pay, but did not really solve the problem.
@@ -117,8 +117,8 @@ And if one is using silent payments to avoid linkability, which whole point was 
 We want that even in the same transactions, spending the same UTXOs, if two outputs are sent to the same sp address, then this will result in money being sent to two different addresses. That will hide a bit more about which output goes to whom, and what the actual amount being exchanged is.
 For this, we include a last variable in the formula: k. k will be a counter, starting at 0 for the first output going to Bob's SP address in the transaction. Then, for each new output of the transaction going to Bob's SP address, k is incremented.
 
-- p = b_spend + H(S.input_hash||k)
-- P = B_spend + H(S.input_hash||k).G
+- p = b_spend + H(S.input_hash || k)
+- P = B_spend + H(S.input_hash || k).G
 
 And finally, that's it! Every payment going to Bob's SP address will go to a different Taproot output address; only Alice and Bob will be able to know that they correspond to a payment from Alice to Bob's SP address, and only Bob will be able to spend them!
 
