@@ -2,6 +2,8 @@
 
 Silent Payments (BIP-352) will enable one to share a single static address to receive payments, and all payments will not be linkable to each other.
 
+If you need a short intro about them, [Satsie's zine](https://satsie.dev/zines/silentpayments.html) to be quite intuitive.
+
 In this article, let's concentrate on the math that makes this possible. 
 We will not start from the final equations and explain what each part does.
 We will try to start from the **need**, and build up what is needed until the final formula is reached and understood.
