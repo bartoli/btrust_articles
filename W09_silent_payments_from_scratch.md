@@ -129,4 +129,4 @@ And finally, that's it! Every payment going to Bob's SP address will go to a dif
 ### Conclusion
 
 Hopefully, you are now able to fully understand what silent payments protect against; and, maybe more importantly, how they do it. You haven't just learnt one new bitcoin formula. You have understood it!
-The next step is now to go back to the original (https://github.com/bitcoin/bips/blob/master/bip-0352.mediawiki)[BIP 352 paper], and to discover the subtleties of Silent Payments.
+The next step is now to go back to the original [BIP 352 paper](https://github.com/bitcoin/bips/blob/master/bip-0352.mediawiki), and to discover the subtleties of Silent Payments.
