@@ -126,7 +126,7 @@ For this, we include a last variable in the formula: k. k will be a counter, sta
 
 And finally, that's it! Every payment going to Bob's SP address will go to a different Taproot output address; only Alice and Bob will be able to know that they correspond to a payment from Alice to Bob's SP address, and only Bob will be able to spend them!
 
-### Conclusion?
+### Conclusion
 
 Hopefully, you are now able to fully understand what silent payments protect against; and, maybe more importantly, how they do it. You haven't just learnt one new bitcoin formula. You have understood it!
-The next step is now to go back to the original (BIP 352 paper)[], and to discover the subtleties of Silent Payments.
+The next step is now to go back to the original (https://github.com/bitcoin/bips/blob/master/bip-0352.mediawiki)[BIP 352 paper], and to discover the subtleties of Silent Payments.
