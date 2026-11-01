@@ -115,7 +115,7 @@ The formulas become:
 
 ### More variability from the output side
 
-Wait what? Did we not just make sure any payment would send to a different address because no two transactions will spend exactly the same combination of UTXOs?<br>
+Wait what? Did we not just make sure any payment would send to a different address because no two transactions will spend exactly the same combination of UTXOs (even owned by the same address)?<br>
 Yes, we did. For any two transactions, payments to Bob's SP address will send to a different address. But what if the transactions pay to Bob's SP address twice? Then, exactly the same UTXOs would be sent to the same destination address.<br>
 And if one is using silent payments to avoid linkability, which whole point was that each received output is sent to a different address, this defeats the purpose!
 
