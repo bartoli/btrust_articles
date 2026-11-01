@@ -19,7 +19,8 @@ Some conventions:
 - Alice is the payer and has key pairs that are variations of **(a, A)**
 - Bob is the receiver and has key pairs that are variations of **(b, B)**
 - **||** marks concatenation
-- **.** is multiplication.
+- **\*** is multiplication.
+- **G** is the generator point. A public key is equal to it's private key multiplied by G : **P = p * G**
 
 ## The silent payment address
 Bob gives a receive address to Alice. Silent payment addresses have the form spxxxxxxxxxxx.
@@ -27,7 +28,7 @@ Bob gives a receive address to Alice. Silent payment addresses have the form spx
 What does it contain?<br>
 To receive silent payments, Bob will need two things : 
 - A secret to share with people wanting to send him money, so they both can compute the same destination addresses
-- A second secret allowing him only to spend the output address that has been paid using the two secrets.
+- A second secret allowing him only to spend the output address that has been paid using the two secrets. This one should be shared with nobody.
 
 So Bob will compute on his side two key pairs :
 - one to *scan* for addresses that correspond to payments to him : **(b_scan, B_scan)**
@@ -40,12 +41,12 @@ We talked about how Alice and Bob can't interact to receive a new payment addres
 
 Also, if Bob is giving his public key as data in his public silent payment address, how is a secret value coming from him?
 
-Let's tinker..
-Only Alice has all the values of (1) *A = a.G*
-Only Bob has all the values of (2) *B = b.G*
-Let's rearrange (1) : *G = A/a*
-Let's put that in (2) : *B = b*(A/a)
-Then we can obtain *a.B = b.A*.
+Let's tinker..<br>
+Only Alice has all the values of (1) *A = a \* G*<br>
+Only Bob has all the values of (2) *B = b \* G*<br>
+Let's rearrange (1) : *G = A / a*<br>
+Let's put that in (2) : *B = b*(A / a)<br>
+Then we can obtain *a.B = b \* A*.<br>
 
 That's it! We have a formula that Alice can compute one side, and Bob can compute the other side, to the same value! And both sides depend on Alice or Bob's secret key, so we know only one person can compute them.
 Here, a and A are Alice's keys used to pay Bob (the keys that own the input she wants to spend).
@@ -64,7 +65,7 @@ p must depend on b_spend only Bob knows, so P should depend on B_spend, which is
 
 P must also depend on the shared secret S. Let's just add it, keeping a ratio of G between both keys
  - p = b_spend + S
- - P = B_spend + (S.G)
+ - P = B_spend + (S * G)
 
 ## Now let's generate unique addresses per payment!
 We have a base formula that allows only Alice and Bob to respectively decide or detect that it is a silent payment from Alice to Bob. And that only Bob can compute the secret key to spend its output.
@@ -87,7 +88,7 @@ When there are multiple inputs, we could do a simple thing and just take (a, A) 
 We must end up with final a and A values that keep the ratio G. We know that any key pair of Alice's addresses, (A1, a1), (A2, a2), ..., (An, an), all also have this factor. So we can simply aggregate them by adding them : 
 - A = A1+A2+..+An = G.(a1+a2+..+an)
 - a = (a1+a2+..+an)
-- S = (A1+A2+..+An).b_scan = (a1+a2+..+an).B_scan
+- S = (A1+A2+..+An) * b_scan = (a1+a2+..+an) * B_scan
 
 What if multiple outputs being spent are owned by the same pubkey?
 We aggregate them multiple times. That added variability is cheap to obtain, just another addition per input in the transaction.
@@ -109,8 +110,8 @@ And since the outpoint values will be unique, no need to include all outpoints o
 
 The formulas become:
 
-- p = b_spend + (S.input_hash)
-- P = B_spend + (S.input_hash).G 
+- p = b_spend + (S * input_hash)
+- P = B_spend + (S * input_hash) * G 
 
 ### More variability from the output side
 
@@ -121,8 +122,8 @@ And if one is using silent payments to avoid linkability, which whole point was 
 We want that even in the same transactions, spending the same UTXOs, if two outputs are sent to the same sp address, then this will result in money being sent to two different addresses. That will hide a bit more about which output goes to whom, and what the actual amount being exchanged is.
 For this, we include a last variable in the formula: k. k will be a counter, starting at 0 for the first output going to Bob's SP address in the transaction. Then, for each new output of the transaction going to Bob's SP address, k is incremented.
 
-- p = b_spend + H(S.input_hash || k)
-- P = B_spend + H(S.input_hash || k).G
+- p = b_spend + H(S * input_hash || k)
+- P = B_spend + H(S * input_hash || k) * G
 
 And finally, that's it! Every payment going to Bob's SP address will go to a different Taproot output address; only Alice and Bob will be able to know that they correspond to a payment from Alice to Bob's SP address, and only Bob will be able to spend them!
 
