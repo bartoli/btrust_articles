@@ -24,7 +24,7 @@ Then came the 3rd month, finally, about contributing!
 ### Selecting a project
 
 I had done some early searches before starting the Fellowship, for a good project to work on. I'm interested in Lightning node management tools, and am mostly programming in C++.<br>
-So i ended up finding CLBOSS, which is kind of an autopilot plugin for CLN nodes. I got really interested in the project, and started attending some of their weekly meetings. But the project was probably too small. It is now in th elist pof projects I would like to contribute to, but only after the Fellowship is ended.
+So i ended up finding CLBOSS, which is kind of an autopilot plugin for CLN nodes. I got really interested in the project, and started attending some of their weekly meetings. But the project was probably too small. It is now in the list of projects I would like to contribute to, but only after the Fellowship is ended.
 
 I naturally went towards the most known, and biggest C++ project related to Bitcoin : Bitcoin Core.
 
