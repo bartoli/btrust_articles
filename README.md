@@ -1,4 +1,4 @@
-A portfolio of my journy during BTrust Fellowship of 2026
+A portfolio of my journey during BTrust Fellowship of 2026
 
 ## About me
 French C++ developper for 20 years, I got interested in the Bitcoin ecosystem for 5 years. I have been a Lightning node manager for 4 years and developped open managment tools for LN nodes.
