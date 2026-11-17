@@ -17,7 +17,7 @@ This year, i have followed programs from Chaincode Labs, Bitshala, and BTrust, I
 ## Articles written during the fellowship
 - [Week 1 - Why SegWit Was Critical to Making the Lightning Network Practical](W01_Segwit_LN.md)
 - [Week 3 - Rene Pickardt'scontributuons to the Lightning Network](W03_rene_pickard_contributions_to_LN.md)
-- [Week 6 - Bitcoin defensive programming](W06_Bitcoin_Defensive_Programming.md)
+- [Week 6 - Why Bitcoin Core Doesn't Even Trust Its Own Code](W06_Bitcoin_Defensive_Programming.md)
 - [Week 9 - Silent Payments from scratch](W09_silent_payments_from_scratch.md)
 - [Week 11 - Contributiong to Bitcoin](W11_Contributing_to_Bitcoin.md)
 
@@ -25,6 +25,11 @@ This year, i have followed programs from Chaincode Labs, Bitshala, and BTrust, I
 As a group of 3, we studied the subject of Silent Payments, and gave a presentation about how it solves the problems of address reuse.
 
 ## Bitcoin Core Contributions during the Fellowship
-- [PR #36501](https://github.com/bitcoin/bitcoin/pull/36501) reduces memory usage by 8 byte per block, saving a few MB of memory usage for most Bitcoin Core nodes
-- [PR #36690](https://github.com/bitcoin/bitcoin/pull/36690) improves the Bech32 unhit tests, in order to theck the guarantees of error detection in Bech32 and Bech32m strings, for the standard size limit and the new size limit of silent payment addresses.
+- [PR #36501](https://github.com/bitcoin/bitcoin/pull/36501) reduces memory usage by 8 bytes per block on the chain, saving a few MB of memory usage for most Bitcoin Core nodes
+- [PR #36690](https://github.com/bitcoin/bitcoin/pull/36690) improves the Bech32 unhit tests, in order to check the guarantees of error detection in Bech32 and Bech32m strings, for the standard size limit and the new size limit of silent payment addresses.
 - [PR #36839](https://github.com/bitcoin/bitcoin/pull/36839) makes cmake warn that building in Visual Studio using cl.exe compiler is now not supported anymore
+
+## What's next
+- Keep Contributing to Bitcoin Core
+- try to start contributing to [CLBOSS](https://github.com/ksedgwic/clboss)
+- Work on a first functioning prototype for Echo
