@@ -12,7 +12,7 @@ This year, i have followed programs from Chaincode Labs, Bitshala, and BTrust, I
 
 - Wab3 / Echo : Current new project in the process of getting birth<br>
   **Wab3** is a C++ library of web3 primitives (Bitcoin, LN, nostr,..), for native builds, WASM, or Android NDK<br>
-  **Echo** is a platform for building dApps, whose goal is that the same C++ code builds an app that runs on desktop, WASM, or Android, and the multiple 'echoes' of an app running on any of those platforms can combine into a complete app
+  **Echo** is a platform for building dApps, whose goal is that the same C++ code builds an app that runs on desktop, WASM, or Android; with the particularity that multiple *echoes* of an app running on any of those platforms can combine into a complete app
 
 ## Articles written during the fellowship
 - [Week 1 - Why SegWit Was Critical to Making the Lightning Network Practical](W01_Segwit_LN.md)
