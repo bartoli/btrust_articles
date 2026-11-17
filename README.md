@@ -11,7 +11,7 @@ This year, i have followed programs from Chaincode Labs, Bitshala, and BTrust, I
 - [LNShortcut.xyz](https://lnshortcut.xyz): a service associated to my LN Node for analyzing the LN network graph, and suggesting interesting nodes to connect to for routing nodes.
 
 - Wab3 / Echo : Current new project in the process of getting birth<br>
-  **Wab3** is a C++ library of web3 primitives (Bitcoin, LN, nostr,..), for native builds, WASM, or Android NDK<br>
+  **Wab3** is a C++ library of web3 primitives (Bitcoin, LN, Nostr,..), for native builds, WASM, or Android NDK<br>
   **Echo** is a platform for building dApps, whose goal is that the same C++ code builds an app that runs on desktop, WASM, or Android; with the particularity that multiple *echoes* of an app running on any of those platforms can combine into a complete app
 
 ## Articles written during the fellowship
