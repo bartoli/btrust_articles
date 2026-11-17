@@ -31,5 +31,5 @@ As a group of 3, we studied the subject of Silent Payments, and gave a presentat
 
 ## What's next
 - Keep Contributing to Bitcoin Core
-- try to start contributing to [CLBOSS](https://github.com/ksedgwic/clboss)
+- Try to start contributing to the [CLBOSS](https://github.com/ksedgwic/clboss) project
 - Work on a first functioning prototype for Echo
