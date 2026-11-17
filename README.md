@@ -16,7 +16,7 @@ This year, i have followed programs from Chaincode Labs, Bitshala, and BTrust, I
 
 ## Articles written during the fellowship
 - [Week 1 - Why SegWit Was Critical to Making the Lightning Network Practical](W01_Segwit_LN.md)
-- [Week 3 - Rene Pickardt'scontributuons to the Lightning Network](W03_rene_pickard_contributions_to_LN.md)
+- [Week 3 - Rene Pickardt's contributions to the Lightning Network](W03_rene_pickardt_contributions_to_LN.md)
 - [Week 6 - Why Bitcoin Core Doesn't Even Trust Its Own Code](W06_Bitcoin_Defensive_Programming.md)
 - [Week 9 - Silent Payments from scratch](W09_silent_payments_from_scratch.md)
 - [Week 11 - Contributiong to Bitcoin](W11_Contributing_to_Bitcoin.md)
