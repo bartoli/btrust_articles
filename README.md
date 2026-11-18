@@ -1,5 +1,5 @@
 Cohort : 2026<br>
-Fellow : Olivier BARTHELEMY [Github](github.com/bartoli)<br>
+Fellow : Olivier BARTHELEMY [Github](https://github.com/bartoli)<br>
 Group Lead : Simon Njeru<br>
 Mentor : Abubakar Sadiq Ismail<br>
 
