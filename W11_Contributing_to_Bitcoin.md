@@ -111,14 +111,14 @@ I think two things particularly frustrated me during this work, that maybe I mag
 #### Finding what to work on
 
 I spent a lot of time browsing existing issues of the Bitcoin Core project.. and not finding which one to claim. There were multiple reasons, among which:
-- the issue is a user submission of their problem, but not an actual problem
+- The issue is a user submission of their problem, but not an actual problem
 - The issue already has open PRs
 - The issue still needs discussion before work can start
 - The issue is too advanced for what I know right now
 
 So between not finding issues, or waiting for feedback, my inability to 'claim issues' to work on took a lot of stress for nothing.
 
-In the end, by looking at parts of the code you know, trying to reproduce issues, reviewing other people's work, you will naturally find issues to submit, or things you can work on!
+In the end, by looking at parts of the code you know, trying to reproduce issues, reviewing other people's work, or simply using th eproject, you will naturally find issues to submit, or things you can work on!
 
 #### The objective shouldn't be the number of merged PRs
 
