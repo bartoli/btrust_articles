@@ -68,7 +68,7 @@ Finally, the knowledge I acquired on Silent Payments also allowed me to provide 
 
 #### Simply using the project
 
-Finally, there is a limit to what you can find to improve by just reading the code. Another way you find things you could work on is.. to use the project!
+At some point, there is a limit to what you can find to improve by just reading the code. Another way you find things you could work on is.. to use the project!
 
 For me, it was not technically while using it, but simply by keeping exploring the code that I found another thing that would gain from a modification:
 
