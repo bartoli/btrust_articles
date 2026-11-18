@@ -11,7 +11,7 @@ I had already developed tools around Bitcoin ([analysing the Lightning Network's
 But this year, I took a step forward. I wanted to actually learn how it all works underneath.
 It all started at the end of last year, when a SN post announced the opening of Boss Challenge at the start of 2026.
 To enter, you have to first complete [Saving Satoshi game](https://savingsatoshi.com/). Even if just a game, I already learnt a lot more about various aspects of Bitcoin.<br>
-Finishing it gave me access to ChainCode Labs' BOSS Challenge, where, through resources and exercises, I dove deep into the tech of Taproot and Lightning Network for example.
+Finishing it gave me access to [ChainCode Labs' BOSS Challenge](https://bosschallenge.xyz/), where, through resources and exercises, I dove deep into the tech of Taproot and Lightning Network for example.
 At some point, the Challenge opened doors to continuing with partner programs.<br>
 I then joined a Bitshala cohort on the Lightning Network, where we studied all chapters of the Mastering Lightning Network book.<br>
 I followed by following a program from BTrust on programming in C++ for Bitcoin.
