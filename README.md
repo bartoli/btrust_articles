@@ -1,8 +1,13 @@
-A portfolio of my journey during BTrust Fellowship of 2026
+Cohort : 2026<br>
+Fellow : Olivier BARTHELEMY [Github](github.com/bartoli)<br>
+Group Lead : Simon Njeru<br>
+Mentor : Abubakar Sadiq Ismail<br>
+
+*A portfolio of my journey during BTrust Fellowship of 2026*
 
 ## About me
-French C++ developper for 20 years, I got interested in the Bitcoin ecosystem for 5 years. I have been a Lightning node manager for 4 years and developped open managment tools for LN nodes.
-This year, i have followed programs from Chaincode Labs, Bitshala, and BTrust, In order to learn more deeply about Bitcoin and the Ligning Network, and to be able to contributre more to the ecosystem.
+French C++ developper for 20 years, I got interested in the Bitcoin ecosystem for 5 years. I have been a Lightning node manager for 4 years and developped open managment tools for LN nodes.<br>
+This year, I have followed programs from Chaincode Labs, Bitshala, and BTrust, in order to learn more deeply about Bitcoin and the Ligning Network, and to be able to contributre more to the ecosystem.
 
 ## Personal projects:
 - [LNShortcut](https://amboss.space/node/02c521e5e73e40bad13fb589635755f674d6a159fd9f7b248d286e38c3a46f8683) : 
