@@ -74,7 +74,7 @@ For me, it was not technically while using it, but simply by keeping exploring t
 
 At some point after a git pull in order to test some branch, then my project stopped building.<br>
 After a few hours of debugging, I ended up finding the issue : the PR removing support for Visual Studio's default compiler had been merged. And it did not only 'stop supporting' the compiler. The changes now assume that if you are building for MSVC, you WILL use clang-cl. The problem is, cmake still lets you build a MSVC solution for cl by default!<br>
-So my 3rd PR was simple, but hopefully save those hours of debugging to other windows developers : adding a fatal error when cmake is called if the target is MSVC and the selected compiler is cl.exe ( [PR #36839](https://github.com/bitcoin/bitcoin/pull/36839) )
+So my 3rd PR was simple, but hopefully will save those hours of debugging to other windows developers : adding a fatal error when cmake is called if the target is MSVC and the selected compiler is cl.exe ( [PR #36839](https://github.com/bitcoin/bitcoin/pull/36839) )
 
 
 ### What Feedback i received
