@@ -12,7 +12,7 @@ This year, I have followed programs from Chaincode Labs, Bitshala, and BTrust, i
 ## Bitcoin Core Contributions during the Fellowship
 Proposed changes:
 - [PR #36501](https://github.com/bitcoin/bitcoin/pull/36501) reduces memory usage by 8 bytes per block on the chain, saving a few MB of memory usage for most Bitcoin Core nodes
-- [PR #36690](https://github.com/bitcoin/bitcoin/pull/36690) improves the Bech32 unhit tests, in order to check the guarantees of error detection in Bech32 and Bech32m strings, for the standard size limit and the new size limit of silent payment addresses.
+- [PR #36690](https://github.com/bitcoin/bitcoin/pull/36690) improves the Bech32 unit tests, in order to check the guarantees of error detection in Bech32 and Bech32m strings, for the standard size limit and the new size limit of silent payment addresses.
 - [PR #36839](https://github.com/bitcoin/bitcoin/pull/36839) makes cmake warn that building in Visual Studio using cl.exe compiler is now not supported anymore
 
 Other review of other maintainers' work:
@@ -21,7 +21,7 @@ Other review of other maintainers' work:
 - Discussion for specification of [Issue #36605](https://github.com/bitcoin/bitcoin/issues/36605) on how to bump fee on external transactions that might be Silent Payments
 
 ## Researched subject during the Fellowship
-As a group of 3 (with Brndon Votteler and Chisom Nwike), we studied the subject of Silent Payments, and gave a presentation about how it solves the problems of address reuse.
+As a group of 3 (with Brndon Votteler and Chisom Nwike), we studied the subject of Silent Payments, and gave a presentation about how it solves the problems of address reuse.<br>
 I particularly deep-dived into th eformulas that make Silent Payments possible (see Week 9 article below)
 
 ## Articles written during the fellowship
