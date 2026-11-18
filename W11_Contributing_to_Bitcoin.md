@@ -102,7 +102,7 @@ This one, I'm still a little bitter about. One of my PRs, which added some tests
 One lesson from this is that it's not because you find what you think is an issue, and even find, then prepare a fix for submission, that there are people that have available time and interest in that PR to review it.
 
 But it did not really stop there for that PR. Actually, within 1 day of that PR having been open for review, another project had already used AI to apply the same principle and to add the same kind of test to their project.<br>
-It kind of proved the interest of what my contribution in a certain way. But something in the way the idea was taken by another project, and in exchange I didn't even get a review or feedback in the original PR, hurt a little. But that's the price for making your work public I guess. You can't control how the world will use it.
+It kind of proved the interest of what my contribution brings, in a way. But something in the way the idea was taken by another project, and in exchange I didn't even get a review or feedback in the original PR, hurt a little. But that's the price for making your work public I guess. You can't control how the world will use it.
 
 ### What i would do differently
 
