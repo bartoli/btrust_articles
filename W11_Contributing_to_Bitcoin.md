@@ -135,6 +135,6 @@ And that's also part of contributing!
 
 Writing this article will probably be one of the last things I do during the Fellowship, since we are just a few days from the end of the last week when this is written.
 
-Over this last month, I finally started contributing to the Bitcoin ecosystem, as a conclusion for a full year of studying. Now, I have one project I already started contributing to, and another project I also know I want to work on in the future. During this year, I also matured an idea of my own project in this ecosystem, for which I can't wait to have more time to allocate to.
+Over this last month, I finally started contributing to the Bitcoin ecosystem, as a conclusion for a full year of studying. Now, I have one project I already started contributing to, and another project I also know I want to work on in the future. During this year, I also matured an idea for my own project in this ecosystem, for which I can't wait to have more time to allocate to.
 
 This is just the beginning!
