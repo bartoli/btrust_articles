@@ -106,7 +106,7 @@ It kind of proved the interest of what my contribution brings, in a way. But som
 
 ### What i would do differently
 
-I think two things particularly frustrated me during this work, that maybe I exaggerated because of wrong expectations.
+I think two things particularly frustrated me during this work, that maybe I magnified because of wrong expectations.
 
 #### Finding what to work on
 
