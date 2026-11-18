@@ -58,7 +58,7 @@ One potential PR candidate was the BIP 352 unit test. Which in my opinion did no
 
 An issue was also published on Github, by one of the devs working on the implementation of BIP 352 : [Issue #36605](https://github.com/bitcoin/bitcoin/issues/36605).<br>
 I really spent time on this one. Trying to understand the problem, trying to see what is needed,..
-The problem was that this is a real problem, but even deciding what should be the default behaviour is tricky. So for now, there still needs discussion before any work can be started. So this one is still in my watch list, but I kept looking elsewhere.
+The problem was that the issue highlights a real problem, but even deciding what should be the default behaviour is tricky. So for now, there still needs discussion before any work can be started. So this one is still in my watch list, but I kept looking elsewhere.
 
 I kept digging around BIP352 code. Stumbled upon the changes to Bech32 for Silent Payments. Indeed, for Silent Payments, where the silent payment address is encoded in Bech32m, the maximum supported bech string length for them increases from 90 to 1023 bytes. So I looked at the Bech32 unit tests, to see if they had updates to test for this change.<br>
 I found out that there were no new tests for the new bech32 length limit. I actually also found out that we did not really test the 'guarantees' of error detection count of bech32 advertised in the code.<br>
