@@ -54,7 +54,7 @@ The obvious entry point was the subject I had picked for the research presentati
 
 I had dug deep into the formulas behind Silent Payments, and had had to look up the current state of the implementation in Bitcoin Core.
 
-One potential PR candidate was the BIP 352 unit test. Which in my opinion did not test one explicit thing. But in the end, a more generic test was also testing that case.
+One potential PR candidate was the BIP 352 unit test. Which in my opinion did not test one explicit thing. But in the end, a more generic test was already testing that case.
 
 An issue was also published on Github, by one of the devs working on the implementation of BIP 352 : [Issue #36605](https://github.com/bitcoin/bitcoin/issues/36605).<br>
 I really spent time on this one. Trying to understand the problem, trying to see what is needed,..
