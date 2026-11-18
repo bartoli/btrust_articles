@@ -11,10 +11,10 @@ I had already developed tools around Bitcoin ([analysing the Lightning Network's
 But this year, I took a step forward. I wanted to actually learn how it all works underneath.
 It all started at the end of last year, when a SN post announced the opening of Boss Challenge at the start of 2026.
 To enter, you have to first complete [Saving Satoshi game](https://savingsatoshi.com/). Even if just a game, I already learnt a lot more about various aspects of Bitcoin.<br>
-Finishing it gave me access to [ChainCode Labs' BOSS Challenge](https://bosschallenge.xyz/), where, through resources and exercises, I dove deep into the tech of Taproot and Lightning Network for example.
+Finishing it gave me access to [ChainCode Labs' BOSS Challenge](https://bosschallenge.xyz/), where, through resources and exercises, I dove deep into the tech of Taproot and Lightning Network for example.<br>
 At some point, the Challenge opened doors to continuing with partner programs.<br>
 I then joined a Bitshala cohort on the Lightning Network, where we studied all chapters of the Mastering Lightning Network book.<br>
-I followed by following a program from BTrust on programming in C++ for Bitcoin.
+Then continued by following a program from BTrust on programming in C++ for Bitcoin.
 
 And after getting high grades in this one, I was offered to take part in BTrust's 2026 Fellowship, which aims to teach people how to become contributors in the Bitcoin ecosystem. This is a 3 month program, where the 2 first months were again concentrated on Learning, and researching a particular subject, which for me, was Silent Payments.
 Then came the 3rd month, finally, about contributing!
