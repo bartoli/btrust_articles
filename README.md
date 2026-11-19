@@ -6,7 +6,7 @@ Mentor : Abubakar Sadiq Ismail<br>
 *A portfolio of my journey during BTrust Fellowship of 2026*
 
 ## About me
-French C++ developper for 20 years, I got interested in the Bitcoin ecosystem for 5 years. I have been a Lightning node manager for 4 years and developped open managment tools for LN nodes.<br>
+French C++ developper for 20 years, I became interested in the Bitcoin ecosystem 5 years ago. I have been a Lightning node manager for 4 years and developped open managment tools for LN nodes.<br>
 This year, I have followed programs from Chaincode Labs, Bitshala, and BTrust, in order to learn more deeply about Bitcoin and the Ligning Network, and to be able to contributre more to the ecosystem.
 
 ## Bitcoin Core Contributions during the Fellowship
@@ -21,8 +21,8 @@ Other review of other maintainers' work:
 - Discussion for specification of [Issue #36605](https://github.com/bitcoin/bitcoin/issues/36605) on how to bump fee on external transactions that might be Silent Payments
 
 ## Researched subject during the Fellowship
-As a group of 3 (with Brndon Votteler and Chisom Nwike), we studied the subject of Silent Payments, and gave a presentation about how it solves the problems of address reuse.<br>
-I particularly deep-dived into th eformulas that make Silent Payments possible (see Week 9 article below)
+As a group of 3 (with Brendon Votteler and Chisom Nwike), we studied the subject of Silent Payments, and gave a presentation about how it solves the problems of address reuse.<br>
+I led the deep-dive into the formulas that make Silent Payments possible (see Week 9 article below)
 
 ## Articles written during the fellowship
 - [Week 1 - Why SegWit Was Critical to Making the Lightning Network Practical](W01_Segwit_LN.md)
