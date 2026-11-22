@@ -12,6 +12,7 @@ This year, I have followed programs from Chaincode Labs, Bitshala, and BTrust, i
 ## Bitcoin Core Contributions during the Fellowship
 Proposed changes:
 - [PR #36501](https://github.com/bitcoin/bitcoin/pull/36501) reduces memory usage by 8 bytes per block on the chain, saving a few MB of memory usage for most Bitcoin Core nodes<br>
+  [Design Document](https://docs.google.com/document/d/11anUWLrEHxb-F6K0Ba8bkWJGAuTZ0aLHIx_-dSs_4NY/edit?usp=sharing)<br>
   Status : ![Merged](https://raw.githubusercontent.com/primer/octicons/main/icons/git-merge-16.svg) MERGED
 - [PR #36690](https://github.com/bitcoin/bitcoin/pull/36690) improves the Bech32 unit tests, in order to check the guarantees of error detection in Bech32 and Bech32m strings, for the standard size limit and the new size limit of silent payment addresses.<br>
   Status : no feedback on original PR, but idea taken and integrated in base58-bech32 project ![Indirect merge](https://raw.githubusercontent.com/primer/octicons/main/icons/git-merge-16.svg) [PR #80](https://github.com/btclib-org/base58-bech32/pull/80)
