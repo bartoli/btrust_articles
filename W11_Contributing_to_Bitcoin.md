@@ -126,7 +126,7 @@ The other frustrating part was the speed (or lack of) to get a PR merged.
 I was one of the first in the fellowship to open PRs. But then they stagnated and others got theirs merged first.
 Which then introduced stress of not reaching the Fellowship goals.
 
-While in the end, I have submitted 3 additions to this big project. One is approved, the other at least has ACKs, and the last, even if ignored in this project, at least received some 'acknowledgment' by being copied by another project.
+While in the end, I have submitted 3 additions to this big project. One is merged, the other at least has ACKs, and the last, even if ignored in this project, at least received some 'acknowledgment' by being copied by another project.
 I also spent time on the other side, reviewing other people's work, and helping it get merged or improved.
 
 And that's also part of contributing!
