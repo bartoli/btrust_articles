@@ -23,6 +23,7 @@ Other review of other maintainers' work:
 - Test and ACK of [PR #35923](https://github.com/bitcoin/bitcoin/pull/35923) for accounting unbroadcast txids in memory usage
 - Review of [PR #36835](https://github.com/bitcoin/bitcoin/pull/36835) to add a python test for scanning Silent Payments
 - Discussion for specification of [Issue #36605](https://github.com/bitcoin/bitcoin/issues/36605) on how to bump fee on external transactions that might be Silent Payments
+- Code review of [PR #35229](https://github.com/bitcoin/bitcoin/pull/35229), on replacing pointers to CBlockIndex with references when possible
 
 ## Researched subject during the Fellowship
 As a group of 3 (with Brendon Votteler and Chisom Nwike), we studied the subject of Silent Payments, and gave a presentation about how it solves the problems of address reuse.<br>
